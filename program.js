@@ -1,6 +1,6 @@
 var express = require('express');
 //var path = require('path');
-var bodyparser = require('body-parser')
+//var bodyparser = require('body-parser')
 
 var app = express();
 // exercise 1
@@ -8,7 +8,8 @@ var app = express();
 //  res.end('Hello World!');
 //});
 // exercise 2
-//app.use(express.static(process.argv[3] || path.join(__dirname, 'public')));
+app.use(require('stylus').middleware(process.argv[3]))
+app.use(express.static(process.argv[3]));
 // exercise 3
 //app.set('views', path.join(__dirname, 'templates'));
 //app.set('view engine', 'jade');
@@ -17,8 +18,8 @@ var app = express();
 //});
 
 //exercise 4
-app.use(bodyparser.urlencoded({extended: true}))
-app.post('/form', function(req, res) {
-  res.end(req.body.str.split('').reverse().join(''));
-});
+//app.use(bodyparser.urlencoded({extended: true}))
+//app.post('/form', function(req, res) {
+//  res.end(req.body.str.split('').reverse().join(''));
+//});
 app.listen(process.argv[2]);
