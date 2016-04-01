@@ -8,8 +8,8 @@ var app = express();
 //  res.end('Hello World!');
 //});
 // exercise 2
-app.use(require('stylus').middleware(process.argv[3]))
-app.use(express.static(process.argv[3]));
+//app.use(require('stylus').middleware(process.argv[3]))
+//app.use(express.static(process.argv[3]));
 // exercise 3
 //app.set('views', path.join(__dirname, 'templates'));
 //app.set('view engine', 'jade');
@@ -22,4 +22,11 @@ app.use(express.static(process.argv[3]));
 //app.post('/form', function(req, res) {
 //  res.end(req.body.str.split('').reverse().join(''));
 //});
+//exercise 5
+app.use(require('stylus').middleware(process.argv[3]))
+app.use(express.static(process.argv[3]));
+
+//exercise 6 param
+
+
 app.listen(process.argv[2]);
