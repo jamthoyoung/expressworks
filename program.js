@@ -23,10 +23,17 @@ var app = express();
 //  res.end(req.body.str.split('').reverse().join(''));
 //});
 //exercise 5
-app.use(require('stylus').middleware(process.argv[3]))
-app.use(express.static(process.argv[3]));
+//app.use(require('stylus').middleware(process.argv[3]))
+//app.use(express.static(process.argv[3]));
 
 //exercise 6 param
-
+app.put('/message/:id', function(req, res){
+ var id = req.params.id;
+ var str = require('crypto')
+  .createHash('sha1')
+  .update(new Date().toDateString() + id)
+  .digest('hex');
+ res.send(str);
+});
 
 app.listen(process.argv[2]);
