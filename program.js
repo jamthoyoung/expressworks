@@ -37,8 +37,19 @@ var app = express();
 //});
 
 //exercise 7 query string
-app.get('/search', function(req, res){
-  res.send(req.query);
+// app.get('/search', function(req, res){
+//   res.send(req.query);
+// });
+
+//exercise 8 json server
+var fs = require('fs');
+app.get('/books', function(req,res){
+  var rs = fs.createReadStream(process.argv[3]);
+  var rs = fs.readFile(process.argv[3], function(err, data){
+    if(err) throw err;
+    var obj = JSON.parse(data);
+    res.json(obj);
+  });
 });
 
 app.listen(process.argv[2]);
