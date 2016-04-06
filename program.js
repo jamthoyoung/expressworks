@@ -27,13 +27,18 @@ var app = express();
 //app.use(express.static(process.argv[3]));
 
 //exercise 6 param
-app.put('/message/:id', function(req, res){
- var id = req.params.id;
- var str = require('crypto')
-  .createHash('sha1')
-  .update(new Date().toDateString() + id)
-  .digest('hex');
- res.send(str);
+//app.put('/message/:id', function(req, res){
+// var id = req.params.id;
+// var str = require('crypto')
+//  .createHash('sha1')
+//  .update(new Date().toDateString() + id)
+//  .digest('hex');
+// res.send(str);
+//});
+
+//exercise 7 query string
+app.get('/search', function(req, res){
+  res.send(req.query);
 });
 
 app.listen(process.argv[2]);
